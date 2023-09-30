@@ -1,0 +1,45 @@
+#!/bin/bash
+
+export DESKTOP_NAME="clashx"
+import "$ZMICRO_DESKTOPS_PATH/$DESKTOP_NAME/config"
+import "$ZMICRO_DESKTOPS_PATH/$DESKTOP_NAME/core"
+
+help() {
+  echo "Usage:"
+  echo "  zmicro clashx <args ...>"
+  echo ""
+
+  clashx --help
+}
+
+version() {
+  clashx --version
+}
+
+core() {
+  # context directory
+  local context="$ZMICRO_DESKTOPS_DATA_PATH/clashx"
+  if [ ! -d "$context" ]; then
+    mkdir -p $context
+  fi
+  cd $context
+  # context directory
+
+  case $1 in
+  -h | --help | help)
+    help
+    ;;
+  -v | --version | version)
+    version
+    ;;
+  *)
+    clashx "$@"
+    ;;
+  esac
+}
+
+run() {
+  core "$@"
+}
+
+run "$@"
