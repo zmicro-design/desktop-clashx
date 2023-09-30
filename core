@@ -55,7 +55,7 @@ install() {
     v1.118.0)
       case $arch in
       arm64)
-        cache_file_checksum_expect="9fa18ccd04bf1b7bed0311613c11c6b52f67f24193a211af92482f65ff745446"
+        cache_file_checksum_expect="c7399660f739eb0eb86e4fb1a5da854318db356bef3a80bcd15a5d329fd5a8b0"
         ;;
       amd64)
         cache_file_checksum_expect="cbe42cf8ecc33b8e0c23849e2743256a8dcd1895c936b3d73d5ba96c5671bc6d"
@@ -89,11 +89,11 @@ install() {
   log::info "[$(timestamp)][desktop][$name] installing $cache_file ..."
   case $arch in
   arm64)
-    install::dmg $cache_file ${name} "${app_name}" "/Volumes/ClashX ${DESKTOP_CORE_VERSION#v}"
+    install::dmg $cache_file ${name} "${app_name}" "/Volumes/ClashX"
     # install::zip $cache_file iTerm2 iTerm.app
     ;;
   amd64)
-    install::dmg $cache_file ${name} "${app_name}" "/Volumes/ClashX ${DESKTOP_CORE_VERSION#v}"
+    install::dmg $cache_file ${name} "${app_name}" "/Volumes/ClashX"
     # install::zip $cache_file iTerm2 iTerm.app
     ;;
   *)
